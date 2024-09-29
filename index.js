@@ -2,7 +2,7 @@ const express = require('express');
 const { exec } = require('child_process'); // Import exec from child_process
 const bodyParser = require('body-parser'); // Import body-parser
 const app = express();
-const port = 3000; // You can change this to any port you want
+const port = process.env.PORT || 3000; // You can change this to any port you want
 
 app.use(bodyParser.json()); // Enable parsing of JSON bodies
 
@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 // Endpoint to run Python script
 app.get('/run-script', (req, res) => {
-    const scriptPath = '../sourceforward/scraper.py'; // Replace with the path to your Python script
+    const scriptPath = '../sourceforward/scraperwhat.py'; // Replace with the path to your Python script
 
     exec(`python3 -W ignore ${scriptPath}`, (error, stdout, stderr) => {
         if (error) {
