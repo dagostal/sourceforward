@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 // Endpoint to run Python script
 app.get('/run-script', (req, res) => {
-    const scriptPath = '../sourceforward/scraperwhat.py'; // Replace with the path to your Python script
+    const scriptPath = './scraper.py'; // Replace with the path to your Python script
 
     exec(`python3 -W ignore ${scriptPath}`, (error, stdout, stderr) => {
         if (error) {
